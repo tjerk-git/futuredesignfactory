@@ -1,0 +1,143 @@
+{% extends "_includes/default.njk" %}
+
+{% block title %}Future Design Factory{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+
+:root {
+    --color-yellow: rgb(254, 202, 22);
+    --color-white: rgb(255, 255, 255);
+    --color-purple: rgb(118, 84, 163);
+    --color-light-yellow: rgb(254, 202, 21);
+    --color-light-blue: rgb(98, 192, 237);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-yellow),
+    var(--color-purple),
+    var(--color-light-blue),
+    var(--color-light-yellow),
+    var(--color-yellow)
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient 8s ease infinite;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="flex items-center justify-between py-4">
+      <div class="flex items-center space-x-6">
+        <a href="#about" class="hover:text-blue-600 transition-colors duration-200">About Us</a>
+        <a href="#projects" class="hover:text-blue-600 transition-colors duration-200">Projects</a>
+        <a href="#partners" class="hover:text-blue-600 transition-colors duration-200">Partners</a>
+      </div>
+      <a href="#enroll" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Enroll Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-24 md:pt-32 relative">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- About Us -->
+      <div class="relative aspect-[3/5] group overflow-hidden">
+        <img src="/images/52422652465_b19005edff_o-compressed.jpeg" alt="Future Design Factory - About Us" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end text-white p-8 transition-all duration-300">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Shape the Future</h2>
+          <p class="text-sm md:text-base mb-6">Join our innovative learning hub where creativity meets sustainability. We're shaping tomorrow's design solutions today.</p>
+          <a href="/about" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="relative aspect-[3/5] group overflow-hidden">
+        <img src="/images/52421691327_e350ff3e6f_o-compressed.jpeg" alt="Future Design Factory - Projects" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end text-white p-8 transition-all duration-300">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Our Projects</h2>
+          <p class="text-sm md:text-base mb-6">Discover innovative solutions created by our students and partners, addressing real-world challenges.</p>
+          <a href="/projects" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">View Projects</a>
+        </div>
+      </div>
+
+      <!-- Partners -->
+      <div class="relative aspect-[3/5] group overflow-hidden">
+        <img src="/images/52422716143_07038a8ff1_o-compressed.jpeg" alt="Future Design Factory - Partners" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end text-white p-8 transition-all duration-300">
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">Partner With Us</h2>
+          <p class="text-sm md:text-base mb-6">Collaborate with NHL Stenden's Future Design Factory and be part of creating sustainable solutions.</p>
+          <a href="/partners" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">Join Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="max-w-5xl mx-auto">
+ 
+      <p class="text-3xl md:text-4xl lg:text-5xl leading-tight font-light">
+        <span class="gradient-text">Future Design Factory</span> is a <span class="font-medium">passion-driven learning hub</span> at <span class="">NHL Stenden University of Applied Science</span> open to national and international students, teachers, researchers, and businesses. Operating under the umbrella of <a href="https://blog.cmdlwd.nl" target="_blank" class="font-medium text-fdf-purple underline decoration-fdf-light-blue">CMD</a> and part of the <span class="font-medium">School of Design</span>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Our Partners</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center justify-items-center">
+      <img src="/images/logos/CERN.png" alt="CERN" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/DeFriesland.png" alt="De Friesland" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Ekwadraat.png" alt="Ekwadraat" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/IPF.png" alt="IPF" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Kana.jpeg" alt="Kana" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Kiemkr8.png" alt="Kiemkr8" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Lankhorst.png" alt="Lankhorst" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/NHL_Stenden.png" alt="NHL Stenden" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Next Nature.png" alt="Next Nature" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/OHB.SE.png" alt="OHB SE" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Omrin.png" alt="Omrin" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Provincie-friesland.png" alt="Provincie Friesland" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Rode Kruis.webp" alt="Rode Kruis" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Spark.png" alt="Spark" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Veilig Verkeer Nederland.png" alt="Veilig Verkeer Nederland" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/War child.svg" alt="War Child" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/Wetterskip Fryslan.png" alt="Wetterskip Fryslan" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/gemeente leeuwarden.png" alt="Gemeente Leeuwarden" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/logo-gemeente-terschelling.jpg" alt="Gemeente Terschelling" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+      <img src="/images/logos/vitens-logo.jpg" alt="Vitens" class="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300">
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+{% endblock %}
