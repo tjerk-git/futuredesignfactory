@@ -5,13 +5,25 @@
 {% block head %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
-
 :root {
     --color-yellow: rgb(254, 202, 22);
     --color-white: rgb(255, 255, 255);
     --color-purple: rgb(118, 84, 163);
     --color-light-yellow: rgb(254, 202, 21);
     --color-light-blue: rgb(98, 192, 237);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(118, 84, 163, 0.05) 25%,
+        rgba(98, 192, 237, 0.05) 50%,
+        rgba(254, 202, 21, 0.03) 75%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background-attachment: fixed;
 }
 
 @keyframes gradient {
@@ -41,22 +53,21 @@
   color: transparent;
   animation: gradient 8s ease infinite;
 }
+
+/* Swiper custom styles */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-yellow) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-yellow) !important;
+}
 </style>
 {% endblock %}
 
 {% block content %}
-<nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-  <div class="container mx-auto px-4 max-w-6xl">
-    <div class="flex items-center justify-between py-4">
-      <div class="flex items-center space-x-6">
-        <a href="#about" class="hover:text-blue-600 transition-colors duration-200">About Us</a>
-        <a href="#projects" class="hover:text-blue-600 transition-colors duration-200">Projects</a>
-        <a href="#partners" class="hover:text-blue-600 transition-colors duration-200">Partners</a>
-      </div>
-      <a href="#enroll" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Enroll Now</a>
-    </div>
-  </div>
-</nav>
+
 
 <!-- Hero Section -->
 <section class="pt-24 md:pt-32 relative">
@@ -68,7 +79,7 @@
         <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end text-white p-8 transition-all duration-300">
           <h2 class="text-2xl md:text-3xl font-bold mb-4">Shape the Future</h2>
           <p class="text-sm md:text-base mb-6">Join our innovative learning hub where creativity meets sustainability. We're shaping tomorrow's design solutions today.</p>
-          <a href="/about" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">Learn More</a>
+          <a href="/about" class="bg-fdf-light-yellow text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">Learn More</a>
         </div>
       </div>
 
@@ -78,7 +89,7 @@
         <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end text-white p-8 transition-all duration-300">
           <h2 class="text-2xl md:text-3xl font-bold mb-4">Our Projects</h2>
           <p class="text-sm md:text-base mb-6">Discover innovative solutions created by our students and partners, addressing real-world challenges.</p>
-          <a href="/projects" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">View Projects</a>
+          <a href="/projects" class="bg-fdf-purple text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">View Projects</a>
         </div>
       </div>
 
@@ -88,7 +99,7 @@
         <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-end text-white p-8 transition-all duration-300">
           <h2 class="text-2xl md:text-3xl font-bold mb-4">Partner With Us</h2>
           <p class="text-sm md:text-base mb-6">Collaborate with NHL Stenden's Future Design Factory and be part of creating sustainable solutions.</p>
-          <a href="/partners" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">Join Us</a>
+          <a href="/partners" class="bg-fdf-light-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition inline-block">Join Us</a>
         </div>
       </div>
     </div>
@@ -135,9 +146,29 @@
   </div>
 </section>
 
+
+
+<footer class="bg-gray-100 py-8">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <div class="flex justify-center space-x-6">
+      <a href="https://dfgn.org" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">
+        <i class="fas fa-globe text-2xl"></i>
+        <span class="sr-only">DFGN Website</span>
+      </a>
+      <a href="https://www.flickr.com/photos/107310216@N06/albums/72177720302841308/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">
+        <i class="fab fa-flickr text-2xl"></i>
+        <span class="sr-only">Flickr Photos</span>
+      </a>
+      <a href="https://www.linkedin.com/company/future-design-factory/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900 transition-colors">
+        <i class="fab fa-linkedin text-2xl"></i>
+        <span class="sr-only">LinkedIn</span>
+      </a>
+    </div>
+    <div class="text-center mt-4 text-sm text-gray-500">
+      &copy; {{ page.date.getFullYear() }} Future Design Factory. All rights reserved.
+    </div>
+  </div>
+</footer>
+
 {% endblock %}
 
-{% block scripts %}
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-{% endblock %}

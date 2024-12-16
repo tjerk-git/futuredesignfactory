@@ -12,9 +12,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     './node_modules/alpinejs/dist/cdn.js': './js/alpine.js',
   })
+
+  eleventyConfig.addPassthroughCopy({
+   'js/cursor.js': './js/cursor.js',
+  })
   
   // add the images folder
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("files");
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (

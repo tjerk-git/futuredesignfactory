@@ -12,14 +12,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script defer=truesrc="/js/alpine.js?v={% version %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script defer=true src="/js/alpine.js?v={% version %}"></script>
     <script defer=true src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+        background-image: 
+          radial-gradient(at 100% 0%, rgba(118, 84, 163, 0.03) 0px, transparent 50%),
+          radial-gradient(at 0% 100%, rgba(98, 192, 237, 0.03) 0px, transparent 50%);
+        min-height: 100vh;
+        cursor: none; /* Hide the default cursor */
+      }
+
+      .custom-cursor {
+        width: 20px;
+        height: 20px;
+        background: rgb(118, 84, 163);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        mix-blend-mode: difference;
+        transition: transform 0.2s ease;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+
+      .custom-cursor.cursor-hover {
+        transform: translate(-50%, -50%) scale(2);
+        background-color: rgba(255, 255, 255, 0.8);
+        mix-blend-mode: difference;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      /* Ensure links and buttons don't show the default cursor */
+      a, button, [role="button"], input[type="button"], input[type="submit"] {
+        cursor: none;
+      }
+    </style>
     {% block head %}{% endblock %}
   </head>
   <body>
+    <nav class="w-full top-0 z-50 py-8 mb-12 
+      {% if page.url === '/about/' %}
+        bg-blue-600
+      {% elif page.url === '/projects/' %}
+        bg-green-600
+      {% elif page.url === '/partners/' %}
+        bg-fdf-light-yellow
+      {% elif page.url === '/minor/' %}
+        bg-fdf-purple
+      {% else %}
+      bg-fdf-purple
+      {% endif %} 
+      text-white transition-colors duration-300">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-8">
+            <a href="/" class="flex-shrink-0">
+              <img src="/images/logos/lgofdc.png" alt="Future Design Factory Logo" class="h-16">
+            </a>
+            <a href="/about" class="transition-colors duration-200 text-lg font-medium hover:text-white">About Us</a>
+            <a href="/projects" class="transition-colors duration-200 text-lg font-medium hover:text-white">Projects</a>
+            <a href="/partners" class="transition-colors duration-200 text-lg font-medium hover:text-white">Partners</a>
+            <a href="/minor" class="transition-colors duration-200 text-lg font-medium hover:text-white">Minor</a>
+          </div>
+         
+        </div>
+      </div>
+    </nav>
     {% block content %}
       {{ content | safe }}
     {% endblock %}
     {% block scripts %}{% endblock %}
+    <script defer=true src="/js/cursor.js?v={% version %}"></script>
   </body>
 </html>
