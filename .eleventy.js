@@ -14,6 +14,10 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addPassthroughCopy({
+    'js/mobile-menu.js': './js/mobile-menu.js',
+  });
+
+  eleventyConfig.addPassthroughCopy({
    'js/cursor.js': './js/cursor.js',
   })
   
