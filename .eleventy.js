@@ -20,10 +20,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
    'js/cursor.js': './js/cursor.js',
   })
-  
+
+
   // add the images folder
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("files");
+  eleventyConfig.addPassthroughCopy("public");
 
   eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
     if (

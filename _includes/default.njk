@@ -7,9 +7,39 @@
     <meta charset="UTF-8"/>
     {% if description %}
       <meta name="description" content="{{description}}"/>
+    {% else %}
+      <meta name="description" content="Future Design Factory - Innovating for a sustainable future through design thinking and technology"/>
     {% endif %}
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#7654a3">
+    <meta name="msapplication-TileColor" content="#7654a3">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://futuredesignfactory.nl/">
+    <meta property="og:title" content="{% block ogtitle %}{{ title }}{% endblock %}">
+    <meta property="og:description" content="{% if description %}{{description}}{% else %}Future Design Factory - Innovating for a sustainable future through design thinking and technology{% endif %}">
+    <meta property="og:image" content="{% block ogimage %}/images/og-image.jpg{% endblock %}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://futuredesignfactory.nl/">
+    <meta name="twitter:title" content="{% block twtitle %}{{ title }}{% endblock %}">
+    <meta name="twitter:description" content="{% if description %}{{description}}{% else %}Future Design Factory - Innovating for a sustainable future through design thinking and technology{% endif %}">
+    <meta name="twitter:image" content="{% block twimage %}/images/og-image.jpg{% endblock %}">
+
+    <!-- Additional Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Future Design Factory">
+    <meta name="keywords" content="design thinking, innovation, sustainability, technology, future design, education, research">
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -50,9 +80,33 @@
         cursor: none;
       }
 
-      /* Navigation styles */
-      .main-nav {
-        position: fixed;
+      /* Logo hover effect */
+      .logo-hover {
+        transition: transform 0.3s ease;
+      }
+      
+      .logo-hover:hover {
+        transform: scale(1.1);
+      }
+
+      /* Navigation link hover effect */
+      .nav-link {
+        position: relative;
+        text-decoration: none;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: white;
+        transition: width 0.3s ease;
+      }
+      
+      .nav-link:hover::after {
         width: 100%;
       }
 
@@ -162,7 +216,7 @@
     {% block head %}{% endblock %}
   </head>
   <body>
-    <nav class="main-nav w-full top-0 z-50 py-2 md:py-3
+    <nav class="main-nav w-full py-2 md:py-3
       {% if page.url === '/about/' %}
         bg-blue-600
       {% elif page.url === '/projects/' %}
@@ -178,15 +232,15 @@
       <div class="container mx-auto px-4 max-w-6xl">
         <div class="flex items-center justify-between">
           <a href="/" class="flex-shrink-0">
-            <img src="/images/logos/lgofdc.png" alt="Future Design Factory Logo" style="width:64px;" class="mr-4">
+            <img src="/images/logos/lgofdc.png" alt="Future Design Factory Logo" style="padding-left: 10px; padding-right:10px; padding-top:5px; padding-bottom:5px; width:64px; background-color: white; border-radius: 4px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));" class="mr-4 logo-hover">
           </a>
           
           <!-- Desktop Menu -->
           <div class="desktop-menu hidden md:flex items-center space-x-6">
-            <a href="/about" class="transition-colors duration-200 text-base font-medium hover:text-white">About Us</a>
-            <a href="/projects" class="transition-colors duration-200 text-base font-medium hover:text-white">Projects</a>
-            <a href="/partners" class="transition-colors duration-200 text-base font-medium hover:text-white">Partners</a>
-            <a href="/minor" class="transition-colors duration-200 text-base font-medium hover:text-white">Minor</a>
+            <a href="/about" class="nav-link transition-colors duration-200 text-base font-medium hover:text-white">About Us</a>
+            <a href="/projects" class="nav-link transition-colors duration-200 text-base font-medium hover:text-white">Projects</a>
+            <a href="/partners" class="nav-link transition-colors duration-200 text-base font-medium hover:text-white">Partners</a>
+            <a href="/minor" class="nav-link transition-colors duration-200 text-base font-medium hover:text-white">Minor</a>
           </div>
 
           <!-- Hamburger Menu Button -->
@@ -212,7 +266,7 @@
     </div>
 
     <!-- Add spacing for fixed navigation -->
-    <div class="h-12 md:h-16"></div>
+    <div class="h-20 md:h-24"></div>
 
     {% block content %}
       {{ content | safe }}
